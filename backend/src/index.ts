@@ -5,7 +5,14 @@ import router from "./router/index.route";
 
 const app = express();
 app.use(morgan("dev"));
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["POST"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
+
 app.use(morgan("dev"));
 app.use(router);
 
